@@ -11,30 +11,30 @@ from primos import descompon
 import doctest
 
 class Aleat:
+    """
+    Classe Aleat que genera un nombre aleatori seguint l'algoritme LGC.
+
+    >>> rand = Aleat(m=32, a=9, c=13, x0=11)
+    >>> for _ in range(4):
+    ...     print(next(rand))
+    ...
+    16
+    29
+    18
+    15
+
+    >>> rand(29)
+    >>> for _ in range(4):
+    ...     print(next(rand))
+    ...
+    18
+    15
+    20
+    1
+
+    """
+
     def __init__(self, m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
-        """
-        Classe Aleat que genera un nombre aleatori seguint l'algoritme LGC.
-
-        >>> rand = Aleat(m=32, a=9, c=13, x0=11)
-        >>> for _ in range(4):
-        ...     print(next(rand))
-        ...
-        16
-        29
-        18
-        15
-
-        >>> rand(29)
-        >>> for _ in range(4):
-        ...     print(next(rand))
-        ...
-        18
-        15
-        20
-        1
-
-        """
-
         ## COMENTAT, JA QUE NO CAL QUE COMPROVEM L'ADEQUACIÓ ##
         # primos_m = descompon(m)
         # primos_c = descompon(c)
@@ -48,7 +48,8 @@ class Aleat:
         # if (m % 4 == 0):
         #     if (a - 1) % 4 == 0:
         #         if (m & (m - 1)) == 0: # comprovem que m sigui potència de 2:
-        #             # quan un número és ^2, en binari, per exemple: 10000. Si li restem 1, 01111. Si fem and de 10000 i 01111 == 0.
+        #             # quan un número és ^2, en binari, per exemple: 10000. 
+        #             # Si li restem 1, 01111. Si fem and de 10000 i 01111 == 0.        
         #             if (a - 1) % 8 == 0: raise
         #     else: raise
     
@@ -108,7 +109,8 @@ def aleat(m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
     # if (m % 4 == 0):
     #     if (a - 1) % 4 == 0:
     #         if (m & (m - 1)) == 0: # comprovem que m sigui potència de 2:
-    #             # quan un número és ^2, en binari, per exemple: 10000. Si li restem 1, 01111. Si fem and de 10000 i 01111 == 0.
+    #             # quan un número és ^2, en binari, per exemple: 10000. 
+    #             # Si li restem 1, 01111. Si fem and de 10000 i 01111 == 0.
     #             if (a - 1) % 8 == 0: raise
     #     else: raise
     x_n = x0
