@@ -68,7 +68,7 @@ class Aleat:
         return self.x_n 
 
 
-    def __call__(self,x):
+    def __call__(self, x):
         if x != None: self.x_n = x
 
 
