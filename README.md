@@ -165,11 +165,49 @@ Inserte a continuación una captura de pantalla que muestre el resultado de ejec
 fichero `aleatorios.py` con la opción *verbosa*, de manera que se muestre el
 resultado de la ejecución de los tests unitarios.
 
+<img src="Captura1.PNG" align="center">
+
+<img src="Captura2.PNG" align="center">
+
 #### Código desarrollado
 
 Inserte a continuación el código de los métodos desarrollados en esta tarea, usando los
 comandos necesarios para que se realice el realce sintáctico en Python del mismo (no
 vale insertar una imagen o una captura de pantalla, debe hacerse en formato *markdown*).
+
+`Clase Aleat`
+```python
+class Aleat:
+
+    def __init__(self, *, m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
+        self.m = m
+        self.a = a
+        self.c = c
+        self.x_n = x0
+        return None
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        self.x_n = (self.a * self.x_n + self.c) % self.m
+        return self.x_n
+    
+    def __call__(self, seed):
+        if seed != None: self.x_n = seed
+```
+
+`Función aleat()`
+```python
+def aleat(*, m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
+    
+    x_n = x0
+    while True:
+        x_n = (a * x_n + c) % m
+        seed = yield x_n
+        if seed is not None:
+            x_n = seed
+```
 
 #### Subida del resultado al repositorio GitHub y *pull-request*
 

@@ -11,6 +11,15 @@ class Aleat:
     """
     Generador de números aleatorios en el rango 0 < x_n < m usando el método LGC.
 
+    El método '__init__()' tomacuatro argumentos opcionales indicados por clave('m', 'a', 'c' y 'x0') que son utilizados para configurar los parámetros
+    necesarios para generar números aleatorios mediante el método LGC.
+
+    El método '__iter__()' simplemente devuelve la instancia actual como iterador.
+
+    El método '__next__()' implementa la generación de números aleatorios en sí misma y devuelve el siguiente número aleatorio de la secuencia.
+
+    El método '__call__()' reinicia la secuencia de números aleatorios con la semilla indicada en su único argumento posicional.
+    
     >>> rand = Aleat(m=32, a=9, c=13, x0=11)
     >>> for _ in range(4):
     ...     print(next(rand))
