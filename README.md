@@ -1,6 +1,6 @@
 # Cuarta tarea de APA 2023: Generación de números aleatorios
 
-## Nom i cognoms
+## Nom i cognoms: Gisela León
 
 ## Generación de números aleatorios usando el algoritmo LGC
 
@@ -15,15 +15,9 @@ Donde se denomina *módulo* a $m > 0$, *multiplicador* a $0 < a < m$, *increment
 $0 \le c < m$, y $0 \le x_0 < m$ es el valor inicial, o *semilla*, de la secuencia
 aleatoria generada.
 
-La secuencia es periódica, ya que, cada vez que repetimos un valor de $x_n$, volvemos a
-generar la misma otra vez. Los valores generados cumplen $0 \le x_n < m$; por tanto, la
-secuencia más larga posible es de longitud $m$, en cuyo caso, cada valor $0 \le x_n < m$
-es producido una sola vez.
+La secuencia es periódica, ya que, cada vez que repetimos un valor de $x_n$, volvemos a generar la misma otra vez. Los valores generados cumplen $0 \le x_n < m$; por tanto, la secuencia más larga posible es de longitud $m$, en cuyo caso, cada valor $0 \le x_n < m$ es producido una sola vez.
 
-El módulo $m$ suele tomar como valor una potencia entera de dos para facilitar el cálculo
-del resto de la división entera mediante el operador desplazamiento de bits. Una elección
-adecuada del incremento $c$ y el multiplicador $a$ permite que la secuencia generada
-tenga el periodo máximo, igual a $m$:
+El módulo $m$ suele tomar como valor una potencia entera de dos para facilitar el cálculo del resto de la división entera mediante el operador desplazamiento de bits. Una elección adecuada del incremento $c$ y el multiplicador $a$ permite que la secuencia generada tenga el periodo máximo, igual a $m$:
 
 - $m$ y $c$ no deben tener factores primos en común.
 - $a - 1$ debe ser divisible por todos los factores primos de $m$ (aunque no mucho).
