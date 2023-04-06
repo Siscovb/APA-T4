@@ -3,8 +3,9 @@
  
     Gisela León
     
-    PRUEBAS UNITARIAS: 
-    
+    PRUEBAS UNITARIAS:
+     
+    Clase Aleat:
     >>> rand = Aleat(m=32, a=9, c=13, x0=11)
     
     >>> for _ in range(4):
@@ -24,6 +25,7 @@
     20
     1
     
+    Función generadora aleat():
     >>> rand = aleat(m=64, a=5, c=46, x0=36)
     >>> for _ in range(4):
     ...     print(next(rand))
