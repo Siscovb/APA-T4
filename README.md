@@ -1,6 +1,6 @@
 # Cuarta tarea de APA 2023: Generación de números aleatorios
 
-## Nom i cognoms
+## Nom i cognoms: Alexandr Ramos
 
 ## Generación de números aleatorios usando el algoritmo LGC
 
@@ -165,11 +165,144 @@ Inserte a continuación una captura de pantalla que muestre el resultado de ejec
 fichero `aleatorios.py` con la opción *verbosa*, de manera que se muestre el
 resultado de la ejecución de los tests unitarios.
 
+<img src="img/Capture.PNG" align="center">
+
 #### Código desarrollado
 
 Inserte a continuación el código de los métodos desarrollados en esta tarea, usando los
 comandos necesarios para que se realice el realce sintáctico en Python del mismo (no
 vale insertar una imagen o una captura de pantalla, debe hacerse en formato *markdown*).
+
+Originalment havia entes malament l'enunciat i creia que apart d'un fitxer amb les definicións, haviem de fer un programa que utilizi les definicions. Com que ja ho tinc fet, no ho esborraré, es tracta del fitxer `Aleat.py` La resta es tot tal com descriu l'enunciat.
+
+##### `aleatorios.py`
+
+```python
+class Aleat:
+    """
+    Classe Aleat
+    """
+
+    def __init__(self, *, m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
+        """
+        Inicialitzador amb parametres opcionals m, a, c, x0.
+        Per defecte, tots tindran un valor inicial.
+        S'han d'introduir per clau, no posicionalement.
+        """
+        if m == 2**48 and a == 25214903917 and c == 11 and x0 == 1212121:
+            ...
+        elif 0 < m and 0 < a and a < m and 0 <= c and c < m and 0 < x0 and x0 < m:
+            ...
+        else: print("Aquests inicialitzadors NO son adequants pel correcte funcionament de l'algoritme")
+
+        self.m, self.a, self.c, self.x0 = m, a, c, x0
+
+    def __next__(self):
+        """
+        Actualitza una iteració i retorna el resultat
+        >>> rand = Aleat(m=32, a=9, c=13, x0=11)
+        >>> for _ in range(4): print(next(rand))
+        16
+        29
+        18
+        15
+        """
+        self.x0 = ((self.a * self.x0) + self.c) % self.m
+        return self.x0
+    
+    def __call__(self, x0, /):
+        """
+        Actualitza la llavor
+        Nomes per invocació posicional
+        >>> rand = Aleat(m=32, a=9, c=13, x0=11)
+        >>> rand(29)
+        >>> for _ in range(4): print(next(rand))
+        18
+        15
+        20
+        1
+        """
+        self.x0 = x0
+
+
+"""
+funció aleat()
+"""
+def aleat(m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
+    """
+    Funció que genera valor aleatori.
+    Iterable amb next() i actualitzable amb send()
+    Arguments invocables tant posicionalement com per clau.
+    >>> rand = aleat(m=64, a=5, c=46, x0=36)
+    >>> for _ in range(4): print(next(rand))
+    34
+    24
+    38
+    44
+
+    >>> rand.send(24)
+    38
+    >>> for _ in range(4): print(next(rand))
+    44
+    10
+    32
+    14
+    """
+    if m == 2**48 and a == 25214903917 and c == 11 and x0 == 1212121:
+        ...
+    elif 0 < m and 0 < a and a < m and 0 <= c and c < m and 0 < x0 and x0 < m:
+        ...
+    else: print("Aquests inicialitzadors NO son adequants pel correcte funcionament de l'algoritme")
+    
+    while True:
+        x0 = ((a * x0) + c) % m
+        ret = yield x0
+        if ret: x0 = ret
+
+
+import doctest
+doctest.testmod()
+```
+
+##### `Aleat.py`
+```python
+import aleatorios as al
+
+print('Creem un objecte de classe Aleat sense inicialitzadors')
+
+rand = al.Aleat()
+for _ in range(4): print(next(rand))
+
+print('\nActualitzem la llavor')
+
+rand(29)
+for _ in range(4): print(next(rand))
+
+print('\nInicialitzem un altre objecte amb arguments definits')
+
+rand = al.Aleat(m=32, a=9, c=13, x0=11)
+for _ in range(4): print(next(rand))
+
+print('\nActualitzem la llavor')
+
+rand(29)
+for _ in range(4): print(next(rand))
+
+print('\nUtilitzem la funció sense arguments definits')
+
+rand = al.aleat()
+for _ in range(4): print(next(rand))
+
+print('\nUtilitzem la funció definint arguments')
+
+rand = al.aleat(m=64, a=5, c=46, x0=36)
+for _ in range(4): print(next(rand))
+
+print('\nActualitzem la llavor')
+
+rand.send(24)
+for _ in range(4): print(next(rand))
+```
 
 #### Subida del resultado al repositorio GitHub y *pull-request*
 
