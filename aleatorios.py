@@ -54,7 +54,7 @@ class Aleat:
     Clase usada para implementar un generador de números aleatorios
     en el rango 0 <= xn < usando LGC 
     """
-     # Método que toma 4 argumentos indicados por clave los cuáles se utilizan para generar num aleatorios a través del método LGC
+     # Método que toma 4 argumentos (por estándar POSIX) indicados por clave los cuáles se utilizan para generar num aleatorios a través del método LGC
      def __init__(self,*,m = 2**48, a =252149093917,c=11,x0=1212121 ):
           self.m = m
           self.a = a
