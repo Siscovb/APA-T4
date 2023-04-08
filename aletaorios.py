@@ -4,9 +4,6 @@
     Nombre y apellidos: Marina Fresneda Manzano
 """
 
-import doctest
-import primos 
-
 class Aleat:
     '''
     Clase que implementa un generador de números aleatorios en el rango 0<=xn<m usando el método LGC
@@ -50,8 +47,8 @@ class Aleat:
         '''
         Método que permite obtener el siguiente elemento de una secuencia de objetos
         '''
-        self.x = (self.a * self.x + self.c) % self.m
-        return self.x
+        self.xn = (self.a * self.xn + self.c) % self.m
+        return self.xn
     
 
     def __call__(self, semilla):
@@ -61,34 +58,38 @@ class Aleat:
         self.xn = semilla
     
 
-    def aleat(m=2**48, a=25214903917, c=11, x0 = 1212121):
+def aleat(m=2**48, a=25214903917, c=11, x0 = 1212121):
         '''
-        Función que implementa el generador de números aleatorios
-        >>> rand = aleat(m=64, a=5, c=46, x0=36)
-        >>> for _ in range(4):
-        ...     print(next(rand))
-        ...
-        34
-        24
-        38
-        44
+    Función que implementa el generador de números aleatorios
+    >>> rand = aleat(m=64, a=5, c=46, x0=36)
+    >>> for _ in range(4):
+    ...     print(next(rand))
+    ...
+    34
+    24
+    38
+    44
 
-        >>> rand.send(24)
-        38
-        >>> for _ in range(4):
-        ...     print(next(rand))
-        ...
-        44
-        10
-        32
-        14
+    >>> rand.send(24)
+    38
+    >>> for _ in range(4):
+    ...     print(next(rand))
+    ...
+    44
+    10
+    32
+    14
 
-        '''
+    '''
 
         xn = x0
+
         while True:
-            xn = (a * xn + c) % m
-            yield xn / m            #normaliza el número aleatorio generado en el rango [0, 1)
-            n_sem = yield
+            xn = (a * xn + c) % m          
+            n_sem = yield xn 
             if n_sem is not None:
                 xn = n_sem
+
+
+import doctest
+doctest.testmod()
