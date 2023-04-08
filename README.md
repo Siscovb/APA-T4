@@ -1,6 +1,6 @@
 # Cuarta tarea de APA 2023: Generación de números aleatorios
 
-## Nom i cognoms
+## Nom i cognoms: Milene Granda
 
 ## Generación de números aleatorios usando el algoritmo LGC
 
