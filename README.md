@@ -1,6 +1,6 @@
 # Cuarta tarea de APA 2023: Generación de números aleatorios
 
-## Nom i cognoms
+## Nom i cognoms: Milene Granda
 
 ## Generación de números aleatorios usando el algoritmo LGC
 
@@ -165,11 +165,59 @@ Inserte a continuación una captura de pantalla que muestre el resultado de ejec
 fichero `aleatorios.py` con la opción *verbosa*, de manera que se muestre el
 resultado de la ejecución de los tests unitarios.
 
+<img src="test1 .png" width="400" align="center">   
+<img src="test2.png" width="400" align="center">   
+
 #### Código desarrollado
 
 Inserte a continuación el código de los métodos desarrollados en esta tarea, usando los
 comandos necesarios para que se realice el realce sintáctico en Python del mismo (no
 vale insertar una imagen o una captura de pantalla, debe hacerse en formato *markdown*).
+
+Para la Clase Aleat he realizado el siguiente código:
+```python
+class Aleat:
+     """
+    Clase usada para implementar un generador de números aleatorios
+    en el rango 0 <= xn < usando LGC 
+    """
+     # Método que toma 4 argumentos indicados por clave los cuáles se utilizan para generar num aleatorios a través del método LGC
+     def __init__(self,*,m = 2**48, a =252149093917,c=11,x0=1212121 ):
+          self.m = m
+          self.a = a
+          self.c = c
+          self.xn = x0
+
+     # Método que devuelve la instancia actual
+
+     def __iter__(self):
+          return self
+     
+    #Método que calcula el siguiente número aleatorio de acuerdo a la fórmula indicada en e método
+     def __next__(self):
+          self.xn = (self.a * self.xn +self.c) % self.m
+          return self.xn
+     
+     #Método que actualiza la 'semilla' de la secuencia de los núeros aleatorios con un valor diferente al anterior
+     def __call__(self,seed):
+          self.xn = seed
+
+     def send(self,seed):
+          self.xn = seed
+          return next(self)
+```
+Para la Función aleat() he realizado el siguiente código:
+```python
+def aleat(m = 2**48, a =252149093917, c=11, x0=1212121):
+     #La semilla inicial es x0 y se mantiene en xn
+     xn =x0 
+     while True:
+          xn =(a*xn+c) % m
+          seed = yield xn
+          if seed is not None:
+               xn=seed
+
+```
 
 #### Subida del resultado al repositorio GitHub y *pull-request*
 
