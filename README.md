@@ -139,7 +139,7 @@ a ejecutar con la biblioteca `doctest`:
 14
 ```
 
-### Entrega  
+## Entrega  
   
 #### Clase Aleat
 ```python
