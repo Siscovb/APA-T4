@@ -1,7 +1,6 @@
 # Cuarta tarea de APA 2023: Generación de números aleatorios
 
-## Nom i cognoms
-Gerard Escardó Cabrerizo
+## Nom i cognoms: Gerard Escardó Cabrerizo
 
 ## Generación de números aleatorios usando el algoritmo LGC
 
