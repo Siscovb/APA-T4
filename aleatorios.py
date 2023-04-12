@@ -1,6 +1,8 @@
 """
 APA-T4 
 Oriol Garcia Vila
+
+Para esta entrega he usado el fichero de primos de una practica anterior que hicimos.
 """
 import doctest
 import primos as pr
