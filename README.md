@@ -172,6 +172,7 @@ resultado de la ejecución de los tests unitarios.
 ## Tests unitarios de la función aleat
 
 <img src="img/testsFuncion.png" width="480" align="center">
+
 #### Código desarrollado
 
 Inserte a continuación el código de los métodos desarrollados en esta tarea, usando los
