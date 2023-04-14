@@ -166,10 +166,10 @@ fichero `aleatorios.py` con la opción *verbosa*, de manera que se muestre el
 resultado de la ejecución de los tests unitarios.
 
 Tests unitarios classe **Aleat:** <br>
-<img src="test_Clase_Aleat.PNG" width="280" align="center">
+<img src="test_Clase_Aleat.png" width="280" align="center">
  
 Tests unitarios función **aleat():** <br>
-<img src="test_Funcion_aleat().PNG" width="253" align="center">
+<img src="test_Funcion_aleat().png" width="253" align="center">
 
 
 
