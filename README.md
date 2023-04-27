@@ -165,7 +165,7 @@ a ejecutar con la biblioteca `doctest`:
 
 #### Código desarrollado
 
-""""python
+````python
 class Aleat:
     """
     >>> rand = aleat(m=64, a=5, c=46, x0=36)
@@ -209,7 +209,7 @@ def aleat(m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
 
 import doctest
 doctest.testmod()
-""""
+````
 
 #### Subida del resultado al repositorio GitHub y *pull-request*
 
