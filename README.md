@@ -1,6 +1,6 @@
 # Cuarta tarea de APA 2023: Generación de números aleatorios
 
-## Nom i cognoms
+## Nom i cognoms: Adrià Serrán Grauvilardell
 
 ## Generación de números aleatorios usando el algoritmo LGC
 
@@ -161,15 +161,55 @@ a ejecutar con la biblioteca `doctest`:
 
 #### Ejecución de los tests unitarios
 
-Inserte a continuación una captura de pantalla que muestre el resultado de ejecutar el
-fichero `aleatorios.py` con la opción *verbosa*, de manera que se muestre el
-resultado de la ejecución de los tests unitarios.
+![image](https://user-images.githubusercontent.com/101885469/234807324-a4b43a82-54fc-48ad-a5ca-2ef3c50d1444.png)
 
 #### Código desarrollado
 
-Inserte a continuación el código de los métodos desarrollados en esta tarea, usando los
-comandos necesarios para que se realice el realce sintáctico en Python del mismo (no
-vale insertar una imagen o una captura de pantalla, debe hacerse en formato *markdown*).
+"""python
+class Aleat:
+    """
+    >>> rand = aleat(m=64, a=5, c=46, x0=36)
+    >>> for _ in range(4):
+    ...     print(next(rand))
+    ...
+    34
+    24
+    38
+    44
+
+    >>> rand.send(24)
+    38
+    >>> for _ in range(4):
+    ...     print(next(rand))
+    ...
+    44
+    10
+    32
+    14
+    """
+    def __init__(self, m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
+        self.m = m
+        self.a = a
+        self.c = c
+        self.x0 = x0
+    
+    def __next__(self):
+        self.x = ((self.x * self.a) + self.c) % self.m
+        return self.x
+    
+    def __call__(self, x0):
+        self.x = x0
+    
+def aleat(m = 2**48, a = 25214903917, c = 11, x0 = 1212121):
+    x = x0
+    while True:
+        x = ((x*a) + c) % m 
+        i = (yield x)
+        if i: x = i
+
+import doctest
+doctest.testmod()
+"""
 
 #### Subida del resultado al repositorio GitHub y *pull-request*
 
