@@ -165,6 +165,8 @@ Inserte a continuación una captura de pantalla que muestre el resultado de ejec
 fichero `aleatorios.py` con la opción *verbosa*, de manera que se muestre el
 resultado de la ejecución de los tests unitarios.
 
+![apa_t4_tu](https://github.com/gerardpiqueras/APA-T4/assets/106375817/81d1b220-ac24-4f7e-beae-41c40853cfa8)
+
 #### Código desarrollado
 
 Inserte a continuación el código de los métodos desarrollados en esta tarea, usando los
